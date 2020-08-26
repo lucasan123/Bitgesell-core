@@ -1,0 +1,33 @@
+{
+  "bitcoreNode": {
+    "modules": ["./bitgesell"],
+    "services": {
+      "api": {
+        "wallets": {
+          "allowCreationBeforeCompleteSync": true
+        }
+      }
+    },
+    "chains": {
+      "BGL": {
+        "mainnet": {
+          "chainSource": "p2p",
+          "trustedPeers": [
+            {
+              "host": "127.0.0.1",
+              "port":  8455
+            }
+          ],
+          "rpc": {
+            "host": "127.0.0.1",
+            "port": 8455,
+            "username": "bitcorenodetest",
+            "password": "local321"
+          }
+        }
+      },
+
+
+    }
+  }
+}

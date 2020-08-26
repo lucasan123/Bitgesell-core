@@ -1,0 +1,68 @@
+{
+  "bitcoreNode": {
+    "modules": ["./bitgesell", "./bitcoin-cash", "./ethereum", "./ripple"],
+    "services": {
+      "api": {
+        "wallets": {
+          "allowCreationBeforeCompleteSync": true
+        }
+      }
+    },
+    "chains": {
+      "BGL": {
+        "regtest": {
+          "chainSource": "p2p",
+          "trustedPeers": [
+            {
+              "host": "bitgesell",
+              "port": 8332
+            }
+          ],
+          "rpc": {
+            "host": "bitgesell",
+            "port": 8455,
+            "username": "bitcorenodetest",
+            "password": "local321"
+          }
+        }
+      },
+      "ETH": {
+        "testnet": {
+          "chainSource": "p2p",
+          "trustedPeers": [
+            {
+              "host": "parity",
+              "port": 30303
+            }
+          ],
+          "provider": {
+            "host": "parity",
+            "protocol": "ws",
+            "port": 8546
+          }
+        }
+      },
+      "XRP": {
+        "mainnet": {
+          "chainSource": "rpc",
+          "walletOnlySync": true,
+          "startHeight": 52563951,
+          "provider": {
+            "host": "s2.ripple.com",
+            "protocol": "wss",
+            "dataHost": "https://data.ripple.com"
+          }
+        },
+        "testnet": {
+          "chainSource": "rpc",
+          "provider": {
+            "host": "rippled",
+            "protocol": "ws",
+            "port": "6006",
+            "dataHost": "rippled"
+          }
+        }
+      }
+    }
+  }
+}
